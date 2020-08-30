@@ -1,0 +1,7 @@
+query Search($latitude: Float!, $longitude: Float!, $radius: Float!) {
+    search(latitude: $latitude, longitude: $longitude, radius: $radius) {
+        business {
+            name
+        }
+    }
+}
