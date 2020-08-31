@@ -3,8 +3,10 @@ package com.victorojeda.restaurantfinder.search
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.victorojeda.restaurantfinder.R
 import com.victorojeda.restaurantfinder.model.Business
 
@@ -27,11 +29,13 @@ class BusinessAdapter(var businesses: List<Business>) : RecyclerView.Adapter<Bus
 
     class BusinessViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private lateinit var business: Business
-        private val nameTextView: TextView = itemView.findViewById(R.id.textview_name)
+        private val businessImage: ImageView = itemView.findViewById(R.id.image_business)
+        private val nameTextView: TextView = itemView.findViewById(R.id.text_name)
 
         fun bind(business: Business) {
             this.business = business
             nameTextView.text = business.name
+            businessImage.load(business.photoUrl)
         }
     }
 }

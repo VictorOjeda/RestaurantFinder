@@ -42,7 +42,10 @@ class SearchFragment : Fragment() {
             Observer { businesses ->
                 updateUI(businesses)
             })
-        searchViewModel.findRestaurantsNearMe(33.4028076, -111.901385)
+
+        if (savedInstanceState == null) {
+            searchViewModel.findRestaurantsNearMe(33.4028076, -111.901385)
+        }
     }
 
     private fun updateUI(businesses: List<Business>) {
